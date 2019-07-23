@@ -2,7 +2,7 @@
 <ol>
     <% @tasks.each do |task| %>
         <% completed = task.completed ? "☑️" : "🔲" %>
-        <li><%= completed %> <%= link_to task.title, task %></li>
+        <li><%= completed %> <%= link_to task.title, task %> <%= link_to "🗑", task, method: :delete, data: { confirm: "Really???" } %></li>
     <% end %>
 </ol>
 <%= link_to "➕Create a new task", new_task_path %>
