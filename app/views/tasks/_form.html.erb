@@ -1,6 +1,8 @@
 <%= form_for @task do |f| %>
     <%= f.text_field :title, placeholder: "title" %>
     <%= f.text_field :details, placeholder: "details" %>
-    <label><%= f.check_box :completed %>completed</label>
+    <% unless @task.new_record? %>
+        <label><%= f.check_box :completed %>completed</label>
+    <% end %>
     <%= f.submit %>
 <% end %>
